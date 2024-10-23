@@ -3,8 +3,8 @@ const { Pinecone } = require("@pinecone-database/pinecone");
 const { embedTexts } = require("./embed-texts");
 const { Dispatcher, ProxyAgent } = require("undici");
 
-const DB_INDEX = "rag-langchain-nodejs";
-const NAMESPACE = "test-namespace";
+const DB_INDEX = process.env.PINECONE_INDEX_NAME;
+const NAMESPACE = process.env.PINECONE_NAME_SPACE;
 const client = new ProxyAgent("http://10.39.152.30:3128");
 const customFetch = (input, init) => {
   return fetch(input, {
