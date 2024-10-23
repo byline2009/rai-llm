@@ -8,9 +8,11 @@
   "dependencies": {
     "@langchain/openai": "^0.2.7",
     "@pinecone-database/pinecone": "^3.0.1",
+    "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "https-proxy-agent": "^7.0.5",
     "langchain": "^0.2.17",
+    "openai": "^4.68.2",
     "pdf-parse": "^1.1.1",
     "undici": "^6.20.1"
   }
