@@ -49,7 +49,7 @@ const init = async () => {
 const main = async () => {
   // Create index and store chunks and embeddings from pdfs/basic-concepts-gst.pdf
   // This will only happen for the first time
-  await init();
+  // await init();
 
   // Create an interface for terminal input
   const rl = readline.createInterface({
