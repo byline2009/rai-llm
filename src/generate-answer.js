@@ -1,15 +1,21 @@
-const { ChatOpenAI } = require('@langchain/openai');
+const { ChatOpenAI } = require("@langchain/openai");
+import { HttpsProxyAgent } from "https-proxy-agent";
+
+const agent = new HttpsProxyAgent("http://10.39.152.30:3128");
 
 // https://js.langchain.com/v0.2/docs/integrations/chat/openai/
 // https://js.langchain.com/v0.2/docs/integrations/chat/azure/
 async function generateAnswer(query, retrievedChunks) {
-  const llm = new ChatOpenAI({
-    model: "gpt-4o-mini",
-    // Include any other parameters required, e.g., temperature, max_tokens, etc.
-  });
+  const llm = new ChatOpenAI(
+    {
+      model: "gpt-4o-mini",
+      // Include any other parameters required, e.g., temperature, max_tokens, etc.
+    },
+    { httpAgent: agent }
+  );
 
   // Join retrieved chunks into a single context string
-  const context = retrievedChunks.join(' ');
+  const context = retrievedChunks.join(" ");
 
   // Construct the prompt with specific instructions
   const systemMessage = `You are an AI that answers questions strictly based on the provided context. 
@@ -31,5 +37,5 @@ async function generateAnswer(query, retrievedChunks) {
 
 //const finalAnswer = await generateAnswer(relevantChunks);
 module.exports = {
-  generateAnswer
-}
+  generateAnswer,
+};
