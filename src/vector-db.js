@@ -1,7 +1,7 @@
 const { Pinecone } = require("@pinecone-database/pinecone");
 
 const { embedTexts } = require("./embed-texts");
-import { Dispatcher, ProxyAgent } from "undici";
+const { Dispatcher, ProxyAgent } = require("undici");
 
 const DB_INDEX = "rag-langchain-nodejs";
 const NAMESPACE = "test-namespace";

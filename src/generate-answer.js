@@ -1,5 +1,5 @@
 const { ChatOpenAI } = require("@langchain/openai");
-import { HttpsProxyAgent } from "https-proxy-agent";
+const { HttpsProxyAgent } = require("https-proxy-agent");
 
 const agent = new HttpsProxyAgent("http://10.39.152.30:3128");
 
